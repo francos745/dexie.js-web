@@ -147,8 +147,8 @@ Note that there are other ways to consume observables in vue - such as manually 
 <!-- FriendList.vue -->
 <template>
   <ul>
-    <li v-for="friend in friends" :key="friend.id">
-      {{ friend.name }}, {{ item.age }}
+    <li v-for="friend in items.value" :key="friend.id">
+      {{ friend.name }}, {{ friend.age }}
     </li>
   </ul>
 </template>
@@ -160,7 +160,7 @@ Note that there are other ways to consume observables in vue - such as manually 
 
   export default {
     name: "FriendList",
-    setup() {
+    data() {
       return {
         db,
         items: useObservable(
